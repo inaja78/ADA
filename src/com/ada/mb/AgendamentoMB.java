@@ -6,38 +6,38 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.ada.modelo.Cliente;
+import com.ada.modelo.Agendamento;
 
-@ManagedBean(name="clienteBean")
+@ManagedBean(name="agendamentoBean")
 @SessionScoped
 
-public class ClienteMB {
+public class AgendamentoMB {
 	
-	private Cliente cliente;
-	private List<Cliente> clientes;
+	private Agendamento agendamento;
+	private List<Agendamento> agendas;
 	
 	private String erro;
 	
-	public ClienteMB(){
-		cliente = new Cliente();
-		setClientes(new ArrayList<Cliente>()); 
+	public AgendamentoMB(){
+		agendamento = new Agendamento();
+		setAgendas(new ArrayList<Agendamento>());		
 	}
 	
-	public String salvarCliente(){
+	public String salvarAgendamento(){
 		try{
 			//aguarda implementação
 		} catch (Exception ex) {
 			System.out.println("Erro:" + ex);
-			this.erro = ex.getMessage();
+			this.setErro(ex.getMessage());
 			return "erro";
 		}		
 		return "sucesso"; //string que leva para pagina de cadastro realizado quando for criada	
 	}
 	
-	public String Excluir(Cliente cli){
+	public String removerAgendamento(Agendamento ag){
 		try{
-			clientes.remove(cli);
-			this.cliente = new Cliente();			
+			agendas.remove(ag);
+			this.agendamento = new Agendamento();			
 		}catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -48,7 +48,7 @@ public class ClienteMB {
 	
 	public String getPesquisar(){
 		try{
-			// this.clientes = clienteDAO.getLista(cliente); Acredito que deve ficar assim
+			// this.agendas = agendamentoDAO.getLista(agendamento); Acredito que deve ficar assim
 		}catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -56,31 +56,24 @@ public class ClienteMB {
 		}		
 		return "pesquisar"; //string que leva para pagina de pesquisa quando for criada
 	}
-	
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
+
+	public Agendamento getAgendamento() {
+		return agendamento;
 	}
-	
-	public List<Cliente> getClientes() {
-		//clientes = clienteDAO.getLista(cliente); quando criar o DAO descomentar
-		return clientes;
+
+	public void setAgendamento(Agendamento agen) {
+		this.agendamento = agen;
 	}
-	
-	public String getIndex(){
-		
-		return "index";
+
+	public List<Agendamento> getAgendas() {
+		//agendas = agendamentoDAO.getLista(agendamento); quando criar o DAO descomentar
+		return agendas;
 	}
-	
-	public void setCliente(Cliente clie){
-		
-		this.cliente = clie;
+
+	public void setAgendas(List<Agendamento> agendas) {
+		this.agendas = agendas;
 	}
-	
-	public Cliente getCliente(){
-		
-		return cliente;
-	}
-	
+
 	public String getErro() {
 		return erro;
 	}
@@ -88,4 +81,5 @@ public class ClienteMB {
 	public void setErro(String erro) {
 		this.erro = erro;
 	}
+
 }
