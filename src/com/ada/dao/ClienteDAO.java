@@ -21,7 +21,7 @@ public class ClienteDAO extends AbstractDAO<Cliente>{
 	public List<Cliente> getLista(Cliente cliente){
 		try {
 			PreparedStatement ptmt = conn.prepareStatement("select * from Cliente where nome like ?");
-			ptmt.setString(1, "%" + cliente.getNome() + "%");
+			ptmt.setString(1, "%" + cliente.getCpf() + "%");
 			ResultSet rs = ptmt.executeQuery();
 			while (rs.next()) {
 				cliente = new Cliente();
@@ -53,8 +53,14 @@ public class ClienteDAO extends AbstractDAO<Cliente>{
 	}
 	
 	public void remover(Cliente cliente){
+		try{
+			PreparedStatement ptmt = conn.prepareStatement("delete from Cliente where cpf = ?");
+			ptmt.executeUpdate();
+			ptmt.close();
+        }catch(Exception e){
+        	throw new RuntimeException(e);
+        }
 		
 	}
-
 
 }
