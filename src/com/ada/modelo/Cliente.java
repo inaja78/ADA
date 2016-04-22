@@ -16,6 +16,6 @@ public class Cliente extends Pessoa {
 	public void setSituacaoCadastral(String situacaoCadastral) {
 		this.situacaoCadastral = situacaoCadastral;
 	}
-	
+	//teste
 
 }
