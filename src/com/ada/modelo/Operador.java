@@ -5,8 +5,8 @@ public class Operador extends Pessoa {
 	public static final int admin = 0;
 	public static final int usuario = 1;
 	
-	Admin ad;
-	Usuario user;
+	public Admin ad;
+	public Usuario user;
 	
 	public Operador(int type) {
 		switch(type){
