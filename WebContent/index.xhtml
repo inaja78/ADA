@@ -9,7 +9,24 @@
 <title>Sistema ADA</title>
 </h:head>
 <h:body>
-
-
+<h:form id="form">
+		<table width="100%">
+        <tr>
+          <td colspan="2" align="center">
+            <h1>ADA</h1>
+          </td>
+        </tr>
+        <tr>
+        	<td width="200px" valign="top">
+              <h1>Menu</h1>
+              <h:panelGrid columns="1">
+  				<p:commandButton value="Cadastrar Cliente" action="cadastrarCliente" styleClass="ui-priority-primary" />  
+  				<p:commandButton value="Cadastrar Agendamento" action="#{vendedorBean.getCadastrar}" styleClass="ui-priority-primary" />  
+  				<p:commandButton value="Casdastrar Operador" action="#{produtoBean.getCadastrar}" styleClass="ui-priority-primary"/>          
+              </h:panelGrid>
+           </td>
+        </tr>
+      </table>
+	</h:form>
 </h:body>
 </html>

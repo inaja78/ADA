@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14605083082761" configfile="/ADA/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf14605811172860" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf14605811172871" inlinks="pf14605811172871" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf14605811172860" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14605811172871 pf14617841828190 pf14617841828191 pf14617842112584" inlinks="pf14605811172871 pf14617854832176" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="cliente.xhtml" id="pf14617841828192" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14617854832176" inlinks="pf14617841828190" path="/cliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="operador.xhtml" id="pf14617841828193" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14617841828191" path="/operador.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="agendamento.xhtml" id="pf14617842112585" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14617842112584" path="/agendamento.xhtml"/>
   <links id="pf14605811172871" target="pf14605811172860" source="pf14605811172860" outcome="index"/>
+  <links id="pf14617841828190" target="pf14617841828192" source="pf14605811172860" outcome="cadastrarCliente"/>
+  <links id="pf14617841828191" target="pf14617841828193" source="pf14605811172860" outcome="cadastrarOperador"/>
+  <links id="pf14617842112584" target="pf14617842112585" source="pf14605811172860" outcome="cadastrarAgendamento"/>
+  <links id="pf14617854832176" target="pf14605811172860" source="pf14617841828192" outcome="index"/>
 </pageflow:Pageflow>

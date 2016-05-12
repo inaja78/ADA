@@ -71,6 +71,11 @@ public class ClienteMB {
 		return "index";
 	}
 	
+	public String getCadastrar() {
+
+		return "cadastrarCliente";
+	}
+	
 	public void setCliente(Cliente clie){
 		
 		this.cliente = clie;

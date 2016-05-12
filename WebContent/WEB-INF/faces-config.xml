@@ -30,6 +30,29 @@
 	        <from-outcome>index</from-outcome>
 	        <to-view-id>/index.xhtml</to-view-id>
 	    </navigation-case>
+	    
+	    <navigation-case>
+	        <from-outcome>cadastrarCliente</from-outcome>
+	        <to-view-id>/cliente.xhtml</to-view-id>
+	    </navigation-case>
+	    
+	    <navigation-case>
+	        <from-outcome>cadastrarOperador</from-outcome>
+	        <to-view-id>/operador.xhtml</to-view-id>
+	    </navigation-case>
+	    
+	    <navigation-case>
+	        <from-outcome>cadastrarAgendamento</from-outcome>
+	        <to-view-id>/agendamento.xhtml</to-view-id>
+	    </navigation-case>
 	</navigation-rule> 
+	
+	<navigation-rule>
+	    <from-view-id>/cliente.xhtml</from-view-id>
+	    <navigation-case>
+	        <from-outcome>index</from-outcome>
+	        <to-view-id>/index.xhtml</to-view-id>
+	    </navigation-case>
+	 </navigation-rule> 
 
 </faces-config>
