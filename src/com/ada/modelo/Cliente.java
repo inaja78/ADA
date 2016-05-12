@@ -4,6 +4,7 @@ public class Cliente extends Pessoa {
 	
 	private String nis;
 	private String situacaoCadastral;
+	
 	public String getNis() {
 		return nis;
 	}

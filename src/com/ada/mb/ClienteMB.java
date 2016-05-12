@@ -6,6 +6,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.ada.dao.AbstractDAO;
+import com.ada.dao.ClienteDAO;
 import com.ada.modelo.Cliente;
 
 @ManagedBean(name="clienteBean")
@@ -14,18 +16,21 @@ import com.ada.modelo.Cliente;
 public class ClienteMB {
 	
 	private Cliente cliente;
+	private AbstractDAO<Cliente> clienteDAO;
 	private List<Cliente> clientes;
 	
 	private String erro;
 	
 	public ClienteMB(){
 		cliente = new Cliente();
+		clienteDAO =  new ClienteDAO();
 		setClientes(new ArrayList<Cliente>()); 
 	}
 	
-	public String salvarCliente(){
+	public String SalvarCliente(){
 		try{
-			//aguarda implementação
+			clienteDAO.adicionar(cliente);
+			this.cliente = new Cliente();
 		} catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -48,7 +53,7 @@ public class ClienteMB {
 	
 	public String getPesquisar(){
 		try{
-			// this.clientes = clienteDAO.getLista(cliente); Acredito que deve ficar assim
+			this.clientes = clienteDAO.getLista(cliente);
 		}catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.erro = ex.getMessage();
@@ -62,7 +67,7 @@ public class ClienteMB {
 	}
 	
 	public List<Cliente> getClientes() {
-		//clientes = clienteDAO.getLista(cliente); quando criar o DAO descomentar
+		cliente = (Cliente) clienteDAO.getLista(cliente);
 		return clientes;
 	}
 	

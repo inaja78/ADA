@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ada.modelo.Agendamento;
-import com.ada.modelo.Cliente;
 
 public class AgendamentoDAO extends AbstractDAO<Agendamento>{
 	
@@ -61,7 +60,7 @@ public class AgendamentoDAO extends AbstractDAO<Agendamento>{
 	public void remover(Agendamento agendamento){
 		try{
 			PreparedStatement ptmt = conn.prepareStatement("delete from Agendamento where dataAgendamento = ?");
-			ptmt.setString(1, agendamento.getDataAgendamento()); 
+			ptmt.setDate(1, agendamento.getDataAgendamento()); 
 			ptmt.executeUpdate();
 			ptmt.close();
         }catch(Exception e){

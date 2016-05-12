@@ -8,8 +8,8 @@ public class FabricaConexao {
 	
 	private static final String DRIVER_NAME = "org.postgresql.Driver";
 	private static final String URL = "jdbc:postgresql://localhost/ADA";
-	private static final String USUARIO = "" /*colocar usuario do banco*/;
-	private static final String SENHA = ""   /*colocar senha do banco*/;
+	private static final String USUARIO = "postgres" /*colocar usuario do banco*/;
+	private static final String SENHA = "admin"   /*colocar senha do banco*/;
 	
 	private static FabricaConexao fabricaConexao = null;
 	

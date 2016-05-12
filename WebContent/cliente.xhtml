@@ -7,30 +7,31 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro Beneficiario ADA</title>
 </h:head>
 
 <body>
 	<h:form>
 		<h:panelGrid columns="3">
-			<h:outputLabel value="Cpf:" />
-			<h:inputText value="#{clienteBean.cliente.cpf}" />
-			<h:message for="cpf" />
+			<h:outputLabel value="NIS:" />
+			<h:inputText id="nis" value="#{clienteBean.cliente.nis}" />
+			<h:message for="nis" />
 
-			<h:outputLabel value="Nome:" />
-			<h:inputText id="nome" value="#{clienteBean.cliente.nome}" size="30" />
-			<h:message for="nome" />
+			<h:outputLabel value="Situação:" />
+			<h:inputText id="situacao" value="#{clienteBean.cliente.situacaoCadastral}" size="30" />
+			<h:message for="situacao" />
 
-			<h:outputLabel value="Endereço:" />
+			<!-- h:outputLabel value="Endereço:" />
 			<h:inputText id="endereco" value="#{clienteBean.cliente.endereco}"
 				size="30" />
-			<h:message for="endereco" />
+			<h:message for="endereco" /> -->
 
 			
 		</h:panelGrid>
 		<br />
 		<p:growl id="growl" life="2000" />
 		<p:commandButton value="Inicio" action= "index" styleClass="ui-priority-primary"/>	
-		<p:commandButton value="Salvar"	action="#{compraBean.salvarcliente}" styleClass="ui-priority-primary" />
+		<p:commandButton value="Salvar"	action="#{clienteBean.salvarCliente}" styleClass="ui-priority-primary" />
 		<p:commandButton value="Limpar" action="reset" styleClass="ui-priority-primary" />	
 	</h:form>
 </body>
