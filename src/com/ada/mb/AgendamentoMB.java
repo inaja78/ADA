@@ -6,6 +6,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.ada.dao.AbstractDAO;
+import com.ada.dao.AgendamentoDAO;
 import com.ada.modelo.Agendamento;
 
 @ManagedBean(name="agendamentoBean")
@@ -14,18 +16,21 @@ import com.ada.modelo.Agendamento;
 public class AgendamentoMB {
 	
 	private Agendamento agendamento;
+	private AbstractDAO<Agendamento> agendamentoDAO;
 	private List<Agendamento> agendas;
 	
 	private String erro;
 	
 	public AgendamentoMB(){
 		agendamento = new Agendamento();
+		agendamentoDAO = new AgendamentoDAO();
 		setAgendas(new ArrayList<Agendamento>());		
 	}
 	
 	public String salvarAgendamento(){
 		try{
-			//aguarda implementação
+			agendamentoDAO.adicionar(agendamento);
+			this.agendamento = new Agendamento();
 		} catch (Exception ex) {
 			System.out.println("Erro:" + ex);
 			this.setErro(ex.getMessage());

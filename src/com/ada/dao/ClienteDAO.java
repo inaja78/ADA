@@ -42,11 +42,10 @@ public class ClienteDAO extends AbstractDAO<Cliente>{
 	
 	public void adicionar(Cliente cliente){
 		try {
-			PreparedStatement ptmt = conn.prepareStatement("insert into Cliente (id, nis, situacaocadastral) values ()");/* adicionar os insert com as colunas de acordo com o banco*/
-			//ptmt.setString(1, cliente.getCpf()); fazer assim para todos as colunas existem no banco
-			ptmt.setLong(1, cliente.getId()); //VER ESTA QUESTÃO SE A ID ENTRA AQUI
-			ptmt.setString(2, cliente.getNis());
-			ptmt.setString(3, cliente.getSituacaoCadastral());
+			PreparedStatement ptmt = conn.prepareStatement("insert into cliente (nis, situacaocadastral) values (?, ?)");/* adicionar os insert com as colunas de acordo com o banco*/
+			//ptmt.setLong(1, cliente.getId()); //VER ESTA QUESTÃO SE A ID ENTRA AQUI
+			ptmt.setString(1, cliente.getNis());
+			ptmt.setString(2, cliente.getSituacaoCadastral());
 			ptmt.executeUpdate();
 			ptmt.close();
 		} catch (SQLException e) {

@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.ada.modelo.Agendamento;
@@ -41,14 +42,18 @@ public class AgendamentoDAO extends AbstractDAO<Agendamento>{
 	
 	public void adicionar(Agendamento agendamento){
 		try {
-			PreparedStatement ptmt = conn.prepareStatement("insert into Agendamento (idcliente, idoperador, dataatendimento, dataagendamento, turno, situacao) values (?, ?, ?, ?, ?, ?)");/* adicionar os insert com as colunas de acordo com o banco*/
+			PreparedStatement ptmt = conn.prepareStatement("insert into agendamento (dataatendimento, dataagendamento, turno, situacao) values (?, ?, ?, ?)");/* adicionar os insert com as colunas de acordo com o banco*/
 			//ptmt.setString(1, agendamento.getOperador()); fazer assim para todos as colunas existem no banco
-			ptmt.setLong(1, agendamento.getIdCliente());
-			ptmt.setLong(2, agendamento.getIdOperador());
-			ptmt.setDate(3, agendamento.getDataAtendimento());
-			ptmt.setDate(4, agendamento.getDataAgendamento());
-			ptmt.setString(5, agendamento.getTurnoAgendamento());
-			ptmt.setString(6, agendamento.getSituacao());
+			//ptmt.setLong(1, agendamento.getIdCliente());
+			//ptmt.setLong(2, agendamento.getIdOperador());
+			Date utilDate1 = agendamento.getDataAgendamento();
+			Date utilDate2 = agendamento.getDataAtendimento();
+			java.sql.Date sqlDate1 = new java.sql.Date(utilDate1.getTime());	
+			java.sql.Date sqlDate2 = new java.sql.Date(utilDate2.getTime());			
+			ptmt.setDate(1, (java.sql.Date) sqlDate1);
+			ptmt.setDate(2, (java.sql.Date) sqlDate2);
+			ptmt.setString(3, agendamento.getTurnoAgendamento());
+			ptmt.setString(4, agendamento.getSituacao());
 			ptmt.executeUpdate();
 			ptmt.close();
 		} catch (SQLException e) {
