@@ -4,6 +4,7 @@ public class Cliente extends Pessoa {
 	
 	private String nis;
 	private String situacaoCadastral;
+	
 	public String getNis() {
 		return nis;
 	}
@@ -16,6 +17,4 @@ public class Cliente extends Pessoa {
 	public void setSituacaoCadastral(String situacaoCadastral) {
 		this.situacaoCadastral = situacaoCadastral;
 	}
-	
-
 }

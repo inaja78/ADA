@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro Agendamento ADA</title>
+</h:head>
+
+<body>
+<h:form>
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Data Atendimento:" />
+			<p:calendar id="atendimento" value="#{agendamentoBean.agendamento.dataAtendimento}" />
+			<h:message for="atendimento" />
+
+			<h:outputLabel value="Data Agendamento:" />
+			<p:calendar id="agendamento" value="#{agendamentoBean.agendamento.dataAgendamento}" >
+			<f:convertDateTime pattern="dd/MM/yyyy" />
+			</p:calendar>
+			
+			<h:message for="agendamento" />
+			
+			<h:outputLabel value="Situação:" />
+			<h:inputText id="situacao" value="#{agendamentoBean.agendamento.situacao}" size="30" />
+			<h:message for="situacao" />
+			
+			<h:outputLabel value="Turno:" />
+			<h:inputText id="turno" value="#{agendamentoBean.agendamento.turnoAgendamento}" size="30" />
+			<h:message for="turno" />		
+
+			<!-- h:outputLabel value="Endereço:" />
+			<h:inputText id="endereco" value="#{clienteBean.cliente.endereco}"
+				size="30" />
+			<h:message for="endereco" /> -->
+
+			
+		</h:panelGrid>
+		<br />
+		<p:growl id="growl" life="2000" />
+		<p:commandButton value="Inicio" action= "index" styleClass="ui-priority-primary"/>	
+		<p:commandButton value="Salvar"	action="#{agendamentoBean.salvarAgendamento}" styleClass="ui-priority-primary" />
+		<p:commandButton value="Limpar" action="reset" styleClass="ui-priority-primary" />	
+	</h:form>
+
+</body>
+</html>
